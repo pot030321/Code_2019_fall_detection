@@ -1,0 +1,66 @@
+
+Nguyên lý hoạt động của các cảm biến đeo
+1. Accelerometer (Gia tốc kế)
+Thiết kế: Gia tốc kế sử dụng các vi cơ cấu (MEMS - Micro-Electro-Mechanical Systems) để đo gia tốc theo các trục x, y, z.
+Nguyên lý hoạt động: Gia tốc kế đo lực tác động lên một khối lượng nhỏ bên trong nó khi thiết bị di chuyển. Khi khối lượng này di chuyển, nó làm thay đổi điện dung hoặc điện trở, từ đó tạo ra tín hiệu điện tương ứng với gia tốc.
+
+2. Gyroscope (Con quay hồi chuyển)
+Thiết kế: Con quay hồi chuyển thường sử dụng các vi cơ cấu MEMS tương tự như gia tốc kế.
+Nguyên lý hoạt động: Con quay hồi chuyển đo tốc độ quay và hướng chuyển động bằng cách phát hiện sự thay đổi trong lực Coriolis tác động lên một khối lượng nhỏ bên trong. Lực này gây ra sự thay đổi trong điện dung hoặc điện trở, từ đó tạo ra tín hiệu điện tương ứng với tốc độ quay.
+
+3. Ambient Light Sensor (Cảm biến ánh sáng xung quanh)
+Thiết kế: Cảm biến ánh sáng sử dụng một diode quang học để phát hiện cường độ ánh sáng.
+Nguyên lý hoạt động: Diode quang học chuyển đổi ánh sáng thành dòng điện. Cường độ dòng điện này tỉ lệ với cường độ ánh sáng chiếu vào cảm biến, từ đó xác định mức độ sáng tối của môi trường xung quanh.
+
+
+MEMS hoạt động bằng cách sử dụng các lực cơ học nhỏ để gây ra sự thay đổi trong các đặc tính điện như điện dung, điện trở, hoặc dòng điện. Sự thay đổi này sau đó được cảm biến và chuyển đổi thành tín hiệu điện tương ứng để xử lý và sử dụng trong các ứng dụng khác nhau.
+
+MEMS giúp tạo ra các thiết bị cảm biến nhỏ gọn, tiêu thụ ít năng lượng và có độ chính xác cao, được ứng dụng rộng rãi trong các lĩnh vực từ y tế, ô tô đến điện tử tiêu dùng.
+
+
+Quy trình xây dựng dữ liệu chi tiết cho bộ dữ liệu UP-Fall Detection
+1. Thu thập dữ liệu
+Mục tiêu: Thu thập dữ liệu về các hoạt động hàng ngày và các pha ngã mô phỏng từ 17 người tham gia.
+
+Chi tiết:
+
+Người tham gia: 17 người trẻ, khỏe mạnh, không có khiếm khuyết về sức khỏe (9 nam, 8 nữ).
+Hoạt động: 11 hoạt động hàng ngày bao gồm đi bộ, đứng, nhặt đồ, ngồi, nhảy, nằm và 5 loại ngã bao gồm ngã về phía trước bằng tay, ngã về phía trước bằng đầu gối, ngã về phía sau, ngã khi ngồi vào ghế trống, và ngã sang một bên.
+Thiết bị sử dụng:
+5 cảm biến đeo: Đeo ở cổ tay trái, cổ, túi quần phải, thắt lưng và cổ chân trái.
+6 cảm biến hồng ngoại: Đặt lưới hồng ngoại ở 0.4m trên mặt sàn phòng thí nghiệm.
+2 camera: Đặt ở độ cao 1.82m, một camera cho góc nhìn ngang và một camera cho góc nhìn phía trước.
+Phương pháp:
+
+Mỗi người tham gia thực hiện mỗi hoạt động và ngã 3 lần.
+Các cảm biến và camera được đồng bộ và bắt đầu ghi dữ liệu trước khi người tham gia thực hiện các hoạt động.
+Dữ liệu được thu thập trong khoảng thời gian cố định để đảm bảo tính nhất quán.
+2. Xử lý và lưu trữ dữ liệu
+Đồng bộ hóa và làm sạch dữ liệu:
+
+Các dữ liệu từ các thiết bị được thu thập đồng thời và đồng bộ về thời gian.
+Làm sạch dữ liệu để loại bỏ các nhiễu và đảm bảo dữ liệu thu thập là chính xác và có thể sử dụng.
+Lưu trữ dữ liệu:
+
+Dữ liệu cảm biến: Lưu trữ dưới dạng tệp CSV, chứa thông tin thời gian và các giá trị cảm biến từ accelerometer, gyroscope, và cảm biến ánh sáng môi trường.
+Dữ liệu hình ảnh: Lưu trữ dưới dạng tệp ZIP, chứa các hình ảnh từ camera dưới định dạng PNG.
+3. Tính năng trích xuất
+Phương pháp trích xuất:
+
+Trích xuất các đặc trưng từ dữ liệu cảm biến và hình ảnh.
+Sử dụng các cửa sổ thời gian khác nhau (1 giây, 2 giây, 3 giây) với các khoảng chồng lấn 50% để đảm bảo dữ liệu được phân đoạn và phân tích kỹ lưỡng.
+Cụ thể:
+
+Dữ liệu cảm biến: Trích xuất các đặc trưng về gia tốc, tốc độ quay, và ánh sáng môi trường. Các đặc trưng này bao gồm giá trị trung bình, phương sai, độ lệch chuẩn, và các đặc trưng thống kê khác.
+Dữ liệu hình ảnh: Trích xuất các đặc trưng từ các khung hình video, sử dụng các phương pháp như dòng quang học để phân tích chuyển động giữa các khung hình.
+4. Phát hành và chia sẻ dữ liệu
+Công khai dữ liệu:
+
+Bộ dữ liệu UP-Fall Detection được công khai nhằm hỗ trợ cộng đồng nghiên cứu nhận diện hoạt động và học máy.
+Dữ liệu được chia sẻ trên trang web của trường Đại học Panamericana, Mexico, cung cấp nguồn tài nguyên phong phú cho việc so sánh và đánh giá các phương pháp phát hiện ngã.
+Mục đích:
+
+Giúp cộng đồng nghiên cứu có thể so sánh các phương pháp phát hiện ngã một cách công bằng.
+Hỗ trợ các nghiên cứu về nhận diện hoạt động con người và các phương pháp học máy.
+Cung cấp nhiều khả năng thử nghiệm cho cộng đồng nghiên cứu về nhận diện tín hiệu, hình ảnh, và học máy.
+

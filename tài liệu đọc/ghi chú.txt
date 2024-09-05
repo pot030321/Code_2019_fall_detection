@@ -1,0 +1,3 @@
+kiểm tra khung size 
+độ lệch chuẩn
+full file (1 trường hợp) té ngã phân tích lại để gắn nhãn cho đúng

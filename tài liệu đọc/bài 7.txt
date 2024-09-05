@@ -1,0 +1,5 @@
+Nghiên cứu chính 
+Người đội mũ bảo hiểm phải đối mặt với sự khó chịu do nhiệt trong khi không đội mũ có thể làm tăng nguy cơ chấn thương đầu. Từ đó 
+dựa vài yếu tố sinh lý , khí hậu thông qua mũ bảo hiểm họ đã xử dụng ML theo thuật toán hồi quy logistic LR và cảm biến MEMS để có thể xác định được mũ có đang được mang hay không 
+Từ việc chênh lệch độ ẩm vi khí hậu (AMHD) là tham số khả thi để xác định việc đội mũ với độ phù hợp từ 71 đến 85%, hiệu quả từ 72 đến 76%.
+Tốc độ thay đổi AMHD (AMHDROC) có tương quan cao với việc đội và tháo mũ bảo hiểm và vượt trội về mọi chỉ số. Tuy nhiên, AMHDROC có thể không sử dụng được trong thời gian dài hơn 1 phút do phản ứng AMHD dần ổn định.
